@@ -22,10 +22,13 @@ app.use('/api/v1/users',require('./routes/userRoutes'))
 app.use('/api/v1/transections',require('./routes/transectionRoutes'))
 
 //read static files
-app.use(express.static(path.join(__dirname,"./client/build")));
-app.get('*',(req,res)=>{{
-    res.sendFile(path.join(__dirname,"./client/build/index.html"))
-}})
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 const PORT= 3001 || process.env.PORT
 app.listen(PORT,()=>{
