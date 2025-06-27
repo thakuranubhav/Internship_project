@@ -1,0 +1,59 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.content{
+  min-height: 100vh;
+}
+
+
+
+/* trnasection pages */
+.filters{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  box-shadow: 0 0 3px gray;
+  
+}
+/*  Ant design icons*/
+/* Switch Icon Styling */
+.switch-icon svg {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.active-icon {
+  color: #1890ff;
+}
+
+.inactive-icon {
+  color: gray;
+}
+
+.anticon svg{
+  size: 20px;
+  cursor: pointer;
+}
+
+
+
+
+/* ant design icons */
+.navbar-brand{
+  color: #F97A00;
+
+}
+h5{
+  font-family:cursive;
+  color: teal;
+  padding: 10px 10px;
+  margin-left: 10px;
+}
+
+
+
+
+
