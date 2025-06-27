@@ -13,7 +13,7 @@ function Login() {
   const submitHandeler = async (values) => {
     try {
       setLoading(true);
-      const { data } = await axios.post('/users/login', values);
+      const { data } = await axios.post('/api/v1/users/login', values);
       message.success("Login successful");
       setLoading(false);
       localStorage.setItem('user', JSON.stringify({ ...data.user, password: '' }));

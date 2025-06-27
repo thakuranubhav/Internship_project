@@ -11,7 +11,7 @@ function Register() {
   const submitHandeler = async (values) => {
     try {
       setLoading(true);
-      await axios.post('/users/register', values);
+      await axios.post('/api/v1/users/register', values);
       message.success("Registration successful");
       setLoading(false);
       navigate('/login');
