@@ -1,9 +1,8 @@
 const express=require('express');
-const bodyParser= require('body-parser');
 const cors= require('cors');
 const morgan= require('morgan');
 const dotenv= require('dotenv');
-const colors= require('colors');
+const path= require('path');
 const connectDb= require('./config/db')
 //config dotenv file
 dotenv.config();
@@ -21,6 +20,13 @@ app.use(morgan('dev'))
 app.use('/api/v1/users',require('./routes/userRoutes'))
 //transection routes
 app.use('/api/v1/transections',require('./routes/transectionRoutes'))
+
+//read static files
+app.use(express.static(path.join(__dirname,"./client/build")));
+app.get('*',(req,res)=>{{
+    res.sendFile(path.join(__dirname,"./client/build/index.html"))
+}})
+
 const PORT= 3001 || process.env.PORT
 app.listen(PORT,()=>{
     console.log(`Server running on port ${PORT}`);
