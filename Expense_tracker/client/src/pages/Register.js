@@ -7,11 +7,13 @@ import Spinner from '../components/layout/Spinner';
 function Register() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const BASE_URL = process.env.REACT_APP_API_URL;
+
 
   const submitHandeler = async (values) => {
     try {
       setLoading(true);
-      await axios.post('/api/v1/users/register', values);
+      await axios.post(`${BASE_URL}/api/v1/users/register`, values);
       message.success("Registration successful");
       setLoading(false);
       navigate('/login');
