@@ -15,7 +15,6 @@ connectDb()
 app.use(express.json());
 app.use(cors())
 app.use(morgan('dev'))
-//routes
 //user routes
 app.use('/',require('./routes/userRoutes'))
 //transection routes

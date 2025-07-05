@@ -31,7 +31,7 @@ A modern, responsive **Expense Management System** that helps users track their 
 
 | Table View                          | Graphical View (Analytics) |
 |------------------------------------|-----------------------------|
-| ![Main Dashboard](./screenshots/Dashboard.png) | *(Analytics Screenshot here if available)* |
+| ![Main Dashboard](./screenshots/Dashboard.png) |
 
 ---
 
