@@ -17,9 +17,9 @@ app.use(cors())
 app.use(morgan('dev'))
 //routes
 //user routes
-app.use('/api/v1/users',require('./routes/userRoutes'))
+app.use('/',require('./routes/userRoutes'))
 //transection routes
-app.use('/api/v1/transections',require('./routes/transectionRoutes'))
+app.use('/transections',require('./routes/transectionRoutes'))
 
 //read static files
 if (process.env.NODE_ENV === 'production') {

@@ -15,7 +15,6 @@ import Analytics from '../components/Analytics';
 const { RangePicker } = DatePicker;
 
 const Homepages = () => {
-  const BASE_URL = process.env.REACT_APP_API_URL;
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [allTransections, setAllTrnasections] = useState([]);
@@ -73,7 +72,7 @@ const Homepages = () => {
       try {
         const user = JSON.parse(localStorage.getItem('user'));
         setLoading(true);
-        const res = await axios.post(`${BASE_URL}/api/v1/transections/getall-transection`, {
+        const res = await axios.post('/transections/getall-transection', {
           userid: user._id,
           frequency,
           selectDate,
@@ -92,7 +91,7 @@ const Homepages = () => {
   const handleDelete = async (record) => {
     try {
       setLoading(true);
-      await axios.post(`${BASE_URL}/api/v1/transections/delete-transection`, {
+      await axios.post('/transections/delete-transection', {
         transactionId: record._id,
       });
       setLoading(false);
@@ -109,7 +108,7 @@ const Homepages = () => {
       const user = JSON.parse(localStorage.getItem('user'));
       setLoading(true);
       if (editable) {
-        await axios.post(`${BASE_URL}/api/v1/transections/edit-transection`, {
+        await axios.post('/transections/edit-transection', {
           transactionId: editable._id,
           payload: {
             ...values,
@@ -118,7 +117,7 @@ const Homepages = () => {
         });
         message.success('Transaction updated successfully');
       } else {
-        await axios.post(`${BASE_URL}/api/v1/transections/add-transection`, {
+        await axios.post('/transections/add-transection', {
           ...values,
           userid: user._id,
         });
